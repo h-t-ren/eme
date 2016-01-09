@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/m-layout :: headFragment">
+<title id="pageTitle">应急系统主页面</title>
+</head>
+<body>
+	<!-- HEADER -->
+	<header  class="navbar clearfix navbar-fixed-top" id="header"  th:include="fragments/m-layout :: headerFragment">
+	
+	</header>
+	<!--/HEADER -->
+	
+	<!-- PAGE -->
+	<section id="page">
+		<!-- SIDEBAR -->
+		<div id="sidebar" class="sidebar sidebar-fixed"  th:include="fragments/m-layout :: sidebarFragment">
+        </div>
+		<!-- /SIDEBAR -->
+		<div id="main-content">
+			<div class="container">
+				<div class="row">
+					<div id="content" class="col-lg-12">
+						<!-- PAGE HEADER-->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="page-header">
+									<!-- BREADCRUMBS -->
+									<ul class="breadcrumb">
+										<li>
+											<i class="fa fa-home"></i>
+											<a href="index.html">Home</a>
+										</li>
+										<li>
+											<a href="#">Other Pages</a>
+										</li>
+										<li>Blank Page</li>
+									</ul>
+									<!-- /BREADCRUMBS -->
+									<div class="clearfix">
+										<h3 class="content-title pull-left">Blank Page</h3>
+									</div>
+									<div class="description">Blank Page</div>
+								</div>
+							</div>
+						</div>
+						<!-- /PAGE HEADER -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--/PAGE -->
+	<!-- JAVASCRIPTS -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- JQUERY -->
+   <div th:include="fragments/m-layout :: jsFragment">
+   </div>
+	<script>
+		jQuery(document).ready(function() {		
+			//App.setPage("widgets_box");  //Set current page ???
+			App.init(); //Initialise plugins and elements
+		});
+	</script>
+	<!-- /JAVASCRIPTS -->
+</body>
+</html>
