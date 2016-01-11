@@ -6426,9 +6426,9 @@ fieldset[disabled] .btn-yellow.active {
 #content {
   background-color: #f5f6f6;
   margin-top: 0;
-  min-height: 800px;
+  min-height: 800px;  /**edited by hongtao **/
   border-left: 1px solid #cdd2d2;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   /* Page Header */
 
   /* Breadcrumbs */
@@ -9003,5 +9003,5 @@ ul.stats li small {
 /* Footer
 ================================================== */
 
-#footer { clear: both; position: absolute; bottom: 0; left: 0; width: 100%;  }
+#footer { clear: both; bottom: 0; left: 0; width: 100%;  }
 #footer .wrapper { text-align: center; padding: 20px 0 20px 222px; margin: 0; }
