@@ -5,109 +5,93 @@
 </head>
 <body>
 	<!-- HEADER -->
-	<header  class="navbar clearfix navbar-fixed-top" id="header"  th:include="fragments/m-layout :: headerFragment">
-	
-	</header>
+	<header class="navbar clearfix navbar-fixed-top" id="header"
+		th:include="fragments/m-layout :: headerFragment"> </header>
 	<!--/HEADER -->
-	
+
 	<!-- PAGE -->
 	<section id="page">
 		<!-- SIDEBAR -->
-		<div id="sidebar" class="sidebar sidebar-fixed"  th:include="fragments/m-layout :: sidebarFragment">
-        </div>
+		<div id="sidebar" class="sidebar sidebar-fixed"
+			th:include="fragments/m-layout :: sidebarFragment"></div>
 		<!-- /SIDEBAR -->
-		<div id="main-content">
-			<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
-			<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-				  <div class="modal-content">
-					<div class="modal-header">
-					  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					  <h4 class="modal-title">Box Settings</h4>
+		<!-- maincontent -->
+		<div id="main-content"
+			th:include="fragments/m-layout :: main-contentFragment">
+			<!-- BREADCRUMBS -->
+			<ul class="breadcrumb" id="BREADCRUMBS">
+				<li><i class="fa fa-home"></i> <a href="index.html">主界面</a></li>
+				<li><a href="index.html">应急物资申报</a></li>
+			</ul>
+			<!-- /BREADCRUMBS -->
+
+			<!-- mainContentBox -->
+			<div class="box border" id="mainContentBox">
+				<div class="box-title">
+					<h4>
+						<i class="fa fa-calendar"></i>应急物资申报
+					</h4>
+					<div class="tools">
+						<a href="javascript:;" class="collapse"> <i
+							class="fa fa-chevron-up"></i>
+						</a>
 					</div>
-					<div class="modal-body">
-					  Here goes box setting content.
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					  <button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				  </div>
 				</div>
-			  </div>
-			<!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
-			<div class="container">
-				<div class="row">
-					<div id="content" class="col-lg-12">
-						<!-- PAGE HEADER-->
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="page-header">
-									<!-- STYLER -->
-									
-									<!-- /STYLER -->
-									<!-- BREADCRUMBS -->
-									<ul class="breadcrumb">
-										<li>
-											<i class="fa fa-home"></i>
-											<a href="index.html">主页</a>
-										</li>
-										<li><a href="index.html">应急物资管理</a></li>
-									</ul>
-									<!-- /BREADCRUMBS -->
-					
-								</div>
+				<div class="box-body">
+
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Inputs</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" placeholder="Text input" />
 							</div>
 						</div>
-						<!-- /PAGE HEADER -->
-						<!-- CALENDAR -->
-						<div class="row">
-							<div class="col-md-12">
-								<!-- BOX -->
-								<div class="box border">
-									<div class="box-title">
-										<h4><i class="fa fa-calendar"></i>应急物资申报</h4>
-										<div class="tools">
-											<a href="#box-config" data-toggle="modal" class="config">
-												<i class="fa fa-cog"></i>
-											</a>
-											<a href="javascript:;" class="reload">
-												<i class="fa fa-refresh"></i>
-											</a>
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
-									</div>
-									<div class="box-body">
-									  物资表格
-									</div>
-								</div>
-								<!-- /BOX -->
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Textarea</label>
+							<div class="col-sm-9">
+								<textarea class="form-control" rows="3"></textarea>
 							</div>
 						</div>
-						<!-- /CALENDAR -->
-						<div class="footer-tools">
-							<span class="go-top">
-								<i class="fa fa-chevron-up"></i> 返回顶部
-							</span>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Inline checkboxes</label>
+							<div class="col-sm-9">
+								<label class="checkbox-inline"> <input type="checkbox"
+									id="inlineCheckbox1" value="option1"> 1</input>
+								</label> <label class="checkbox-inline"> <input type="checkbox"
+									id="inlineCheckbox2" value="option2"> 2</input>
+								</label> <label class="checkbox-inline"> <input type="checkbox"
+									id="inlineCheckbox3" value="option3"> 3</input>
+								</label>
+							</div>
 						</div>
-					</div><!-- /CONTENT-->
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Selects</label>
+							<div class="col-sm-9">
+								<select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+
+							</div>
+						</div>
+					</form>
 				</div>
+
 			</div>
+			<!-- /mainContentBox -->
 		</div>
+		<!-- /maincontent -->
 	</section>
-	
-	
+
+
 	<!--/PAGE -->
 	<!-- JAVASCRIPTS -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<!-- JQUERY -->
-   <div th:include="fragments/m-layout :: jsFragment">
-   </div>
+	<div th:include="fragments/m-layout :: jsFragment"></div>
 	<script>
 		jQuery(document).ready(function() {		
 			//App.setPage("widgets_box");  //Set current page ???
