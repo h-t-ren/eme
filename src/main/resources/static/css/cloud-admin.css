@@ -6438,8 +6438,8 @@ fieldset[disabled] .btn-yellow.active {
   background: none repeat scroll 0 0 #FFFFFF;
   border-bottom-color: #cdd2d2;
   color: #000000;
-  margin: 0 -15px 30px;
-  min-height: 85px;
+  margin: 0 -15px 10px;
+  min-height: 20px;
   overflow: hidden;
   padding: 0 20px;
   position: relative;
