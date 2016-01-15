@@ -78,7 +78,7 @@
 						<ul>
 							<li>
 								<a href="index.html">
-									<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">南通环保</span>
+									<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">南通环保局应急系统</span>
 								</a>					
 							</li>
 							<li class="has-sub">
@@ -126,7 +126,7 @@
 										<span class="arrow"></span>
 										</a>
 										<ul class="sub-sub">
-											<li><a class="" href="#"><span class="sub-sub-menu-text">污染源监控分布</span></a></li>
+											<li><a class="" href="＃" th:href="@{/baidumap}"><span class="sub-sub-menu-text">污染源监控分布</span></a></li>
 											<li><a class="" href="#"><span class="sub-sub-menu-text">在线实时监测</span></a></li>
 											<li><a class="" href="#"><span class="sub-sub-menu-text">视频监控</span></a></li>
 											<li><a class="" href="#"><span class="sub-sub-menu-text">风险源分布</span></a></li>
@@ -252,7 +252,10 @@
 	<script type="text/javascript" src="../../static/js/jQuery-Cookie/jquery.cookie.min.js" th:src="@{/js/jQuery-Cookie/jquery.cookie.min.js}"></script>
 	<!-- CUSTOM SCRIPT -->
 	<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=a5iUWpx4Z6h1BvhzCsPCzlSY"></script>
+   <script type="text/javascript" src="../../static/js/baidumap.js" th:src="@{/js/baidumap.js}"></script>
 	</div>
+	
 	<script>
 		jQuery(document).ready(function() {		
 			App.setPage("widgets_box");  //Set current page

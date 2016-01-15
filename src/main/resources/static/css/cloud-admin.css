@@ -8054,9 +8054,11 @@ div[data-role="editor-toolbar"] {
   font-weight: 700;
   padding: 0 0 0 2px;
 }
-/* Google Maps */
+/* Baidu Maps */
 .gmaps {
-  height: 300px;
+  height:auto !important;
+  height:400px; /*假定最低高度是200px*/
+  min-height:400px; 
   width: 100%;
 }
 /* Full calendar */#external-events {

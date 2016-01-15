@@ -30,5 +30,10 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/baidumap")
+	public String baidumap(Map<String, Object> model) {
+		logger.debug("to baidu map");
+		return "baidumap";
+	}
 
 }
