@@ -1,32 +1,88 @@
 var baiduMaps = function () {
+	
+	var map;
 
     var mapBasic = function () {
     	// 百度地图API功能
-    	var sContent =
-    	"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>天安门</h4>" + 
-    	"<img style='float:right;margin:4px' id='imgDemo' src='http://app.baidu.com/map/images/tiananmen.jpg' width='139' height='104' title='天安门'/>" + 
-    	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>天安门坐落在中国北京市中心,故宫的南侧,与天安门广场隔长安街相望,是清朝皇城的大门......</p>" + 
-    	"</div>";
-    	var map = new BMap.Map("baidumap");
-    	var point = new BMap.Point(116.404, 39.915);
-    	var marker = new BMap.Marker(point);
-    	var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
-    	map.centerAndZoom(point, 15);
-    	map.addOverlay(marker);
-    	marker.addEventListener("click", function(){          
-    	   this.openInfoWindow(infoWindow);
-    	   //图片加载完毕重绘infowindow
-    	   document.getElementById('imgDemo').onload = function (){
-    		   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
-    	   }
-    	});
+    	map = new BMap.Map("baidumap");
+    	map.centerAndZoom(new BMap.Point(120.887365,31.983889),12);
+		map.enableScrollWheelZoom(); // 启用滚轮放大缩小
+    		
     }
+    
+	var markers = [
+	     			{content:"南通市开发区春天花园",title:"南通市开发区春天花园",status:"4",imageOffset: {width:0,height:3},position:{lat:31.915359,lng:120.933574}},
+	     			{content:"南通市开发区江山股份",title:"南通市开发区江山股份",status:"1",imageOffset: {width:0,height:3},position:{lat:32.064665,lng:120.523479}},
+	     			{content:"南通市开发区宝灵化工",title:"南通市开发区宝灵化工",status:"4",imageOffset: {width:0,height:3},position:{lat:32.094665,lng:120.742954}},
+	     			{content:"南通市开发区清华同方",title:"南通市开发区清华同方",status:"3",imageOffset: {width:0,height:3},position:{lat:32.039974,lng:120.868495}},
+	     			{content:"南通市开发区东丽公司",title:"南通市开发区东丽公司",status:"1",imageOffset: {width:0,height:3},position:{lat:31.908287,lng:120.779054}},
+	     			{content:"南通市开发区通协纺织",title:"南通市开发区通协纺织",status:"4",imageOffset: {width:0,height:3},position:{lat:32.046917,lng:120.909535}},
+	     			{content:"南通市开发区东星皮革",title:"南通市开发区东星皮革",status:"4",imageOffset: {width:0,height:3},position:{lat:32.024461,lng:120.810403}}
+	     		  ];
+	  
+	//创建richMarker地图标注
+	 function addMapOverlay(){
+		 
+			for (var i = 0; i < markers.length; i++) {
+				createMarker(i);
+			}
+	 }
+	 function createMarker(i){
+		 var color;
+		 var marker;
+		 var status_=markers[i].status;
+		 if(status_=="1"){//正常
+			 marker="level.png";
+			 color="green";
+		 }else if(status_=="2"){//离线
+			 marker="level.png";
+			 color="#7D7D7D";
+		 }else if(status_=="3"){//故障
+			 marker="level.png";
+			 color="#FF8000";
+		 }else if(status_=="4"){//超标
+			 marker="level.png";
+			 color="#FF0000";
+		 }
+	
+		 var markerHtml = '<div style="position: absolute; margin: 0pt; padding: 0pt; width: 120px; height: 25px; left: -10px; top: -35px; overflow: hidden;">'
+				+ '<img style="border:none;left:0px; top:0px; position:absolute;" src="img/mapimg/'+marker+'">';
 
+		var pot = new BMap.Point(markers[i].position.lng,
+				markers[i].position.lat);
+		var richMarker = new BMapLib.RichMarker(markerHtml, pot, {
+			"enableDragging" : false
+		});	
+		map.addOverlay(richMarker);//添加企业Marker标注
+		
+		richMarker.addEventListener("onclick",function(e) {
+						var title = markers[i].title;
+						var  infoWin= createInfoWindow(title);
+						var position_=this.getPosition();
+						infoWin.open(position_);
+								
+		});
+	 }
+	 function createInfoWindow(title){
+		 var content = 'hello';
+			var infoWindow = new BMapLib.SearchInfoWindow(map, content, {
+				title: title, //标题
+				offset: new BMap.Size(0,30),
+				width: 200,//宽度
+				height: 200, //高度
+				panel : "panel", //检索结果面板
+				enableAutoPan : true, //自动平移
+				searchTypes :[
+				]
+			});
+		return infoWindow;
+	 }
    
     return {
         //main function to initiate map samples
-        init: function () {
+        airQAMap: function () {
             mapBasic();
+            addMapOverlay();
 
         }
 
