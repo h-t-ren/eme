@@ -8057,11 +8057,13 @@ div[data-role="editor-toolbar"] {
 /* Baidu Maps */
 .gmaps {
   height:auto !important;
-  height:400px; /*假定最低高度是200px*/
+ /* height:600px; 
   min-height:400px; 
+  */
   width: 100%;
 }
-/* Full calendar */#external-events {
+/* Full calendar */
+#external-events {
   padding: 0 10px;
   border: 1px solid #ccc;
   background: #eee;

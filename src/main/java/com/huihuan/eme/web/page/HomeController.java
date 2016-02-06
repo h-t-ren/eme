@@ -22,7 +22,7 @@ import com.huihuan.eme.EMEWebApplication;
 public class HomeController {
 	
 
-	private static final Log logger = LogFactory.getLog(EMEWebApplication.class);
+	private static final Log logger = LogFactory.getLog(HomeController.class);
 	
 	@RequestMapping("/")
 	public String home(Map<String, Object> model) {

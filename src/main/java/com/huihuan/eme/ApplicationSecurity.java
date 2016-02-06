@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -38,8 +39,10 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/bootstrap-dist/**","/css/**","/font-awesome/**","/frontend_theme/**","/img/**","/js/**").permitAll();
+		http.csrf().disable();
+		http.authorizeRequests().antMatchers("/bootstrap-dist/**","/css/**","/font-awesome/**","/frontend_theme/**","/img/**","/js/**").permitAll()
 		//http.authorizeRequests().antMatchers(HttpMethod.OPTIONS,"/**").permitAll();
+		.antMatchers(HttpMethod.OPTIONS,"/**").permitAll();
 		http.authorizeRequests().antMatchers("/login").permitAll().anyRequest()
 		.fullyAuthenticated().and().formLogin().loginPage("/login")
 		.failureUrl("/login?error").and().logout()
