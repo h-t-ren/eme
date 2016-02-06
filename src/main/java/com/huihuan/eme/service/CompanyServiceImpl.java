@@ -8,7 +8,7 @@ import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
-import com.huihuan.eme.domain.db.Category;
+import com.huihuan.eme.domain.db.Company;
 
 /**
  * @author 任宏涛， ren@ecust.edu.cn
@@ -16,11 +16,11 @@ import com.huihuan.eme.domain.db.Category;
  * @created 2016年1月5日 下午10:12:53
  *
  */
-@Service("categoryService")
-public class CategoryServiceImpl implements CategoryService {
+@Service("companyService")
+public class CompanyServiceImpl implements CompanyService {
 
 	@Override
-	public Collection<String> getItemsByCategory(Category cat) {
+	public Collection<String> getItemsByCategory(Company cat) {
 		  Collection<String> items = new ArrayList<String>();
           return items;
 	}
