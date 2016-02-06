@@ -17,6 +17,8 @@ public class EMEWebApplication  extends SpringBootServletInitializer {
 	public static void main(String[] args) throws Exception {
 		ConfigurableApplicationContext ctx = SpringApplication.run(
 				EMEWebApplication.class, args);
+		DatabaseInit dbinit = ctx.getBean(DatabaseInit.class);
+		dbinit.init();
 	}
 
 	@PostConstruct
